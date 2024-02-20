@@ -1,0 +1,44 @@
+// Массив количества дней в месяцах
+let daysInMonths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+// Массив названий месяцев
+let monthNames = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"]
+
+// Вывод количества дней без названий месяцев
+print("Количество дней в каждом месяце:")
+for days in daysInMonths {
+    print(days)
+}
+
+// Вывод названия месяца и количества дней
+print("\nНазвание месяца и количество дней:")
+for i in 0..<monthNames.count {
+    print("\(monthNames[i]): \(daysInMonths[i])")
+}
+
+// Массив кортежей с параметрами (имя месяца, кол-во дней)
+let monthData = zip(monthNames, daysInMonths)
+
+// Вывод названия месяца и количества дней с использованием массива кортежей
+print("\nНазвание месяца и количество дней (с использованием кортежей):")
+for (month, days) in monthData {
+    print("\(month): \(days)")
+}
+
+// Вывод названия месяцев и количество дней в обратном порядке
+print("\nНазвание месяца и количество дней в обратном порядке:")
+for (month, days) in monthData.reversed() {
+    print("\(month): \(days)")
+}
+
+// Посчитать количество дней до произвольной даты (например, до моего др, 15 ноября)
+let targetMonth = 11 // Номер месяца
+let targetDay = 15 // Номер дня
+var daysCount = 0
+
+for i in 0..<targetMonth - 1 {
+    daysCount += daysInMonths[i]
+}
+daysCount += targetDay
+
+print("\nКоличество дней до \(targetDay)-го дня \(monthNames[targetMonth - 1]): \(daysCount)")
